@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import MyComponent from './MyComponent'
 
 function App() {
+  const values = [
+    "value 1",
+    "value 2",
+    "value 3",
+    "value 4",
+    "value 5",
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>BIOFORGE</h1>
+      {/* <MyComponent value="I am the 2nd instance of this comp" /> */}
+      {values.map((value) => (
+        <MyComponent value={value} />
+      ))}
+      {/* <MyComponent value="I am the first instance of this comp" />
+         <MyComponent value="I am the 2nd instance of this comp" />
+        <MyComponent value="I am the 3rd instance of this comp" />
+        <MyComponent value="I am the 4th instance of this comp" />
+        <MyComponent value="I am the 5th instance of this comp" /> */}
     </div>
-  );
+  )
 }
 
 export default App;
