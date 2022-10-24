@@ -3,24 +3,26 @@ import './App.css';
 import TodoRow from './components/TodoRow';
 
 function App() {
-  const [todoes, setTodoes] = useState([
-    {
-      value:"attend make up class at 8AM",
-      isDone: false
-    },
-    {
-      value:"attend make up class at 6PM",
-      isDone: false
-    },
-    {
-      value:"Prepare for electronics 1 quiz",
-      isDone: false
-    },
-    {
-      value:"Complete S.T's second project",
-      isDone: true
-    },
-  ])
+  const [todoes, setTodoes] = useState(
+    [
+      {
+        value:"attend make up class at 8AM",
+        isDone: false
+      },
+      {
+        value:"attend make up class at 6PM",
+        isDone: false
+      },
+      {
+        value:"Prepare for electronics 1 quiz",
+        isDone: false
+      },
+      {
+        value:"Complete S.T's second project",
+        isDone: true
+      },
+    ]
+  )
 
   let todoInputValue=""
 
@@ -39,8 +41,8 @@ function App() {
       <h1>BIOFORGE</h1>
       <h2>Todo App</h2>
 
-      { todoes.map( todo=>
-        <TodoRow todo={todo}/>
+      { todoes.map( (todo,i)=>
+        <TodoRow todo={todo} index={i} setTodoes={setTodoes}/>
       )}
 
       <input name="todo-input" type="text" placeholder='todo' onChange={(event)=>handleChange(event)}/>
