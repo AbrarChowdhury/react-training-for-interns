@@ -4,8 +4,9 @@ const TodoRow = ({ todo }) => {
   return (
     <div>
         <span>{todo.value}</span>
-        <button disabled={todo.isDone} >done</button>
-        <button>delete</button>
+        {
+          (todo.isDone)? <button>delete</button> : <button disabled={todo.isDone}>done</button>
+        }
     </div>
   )
 }
