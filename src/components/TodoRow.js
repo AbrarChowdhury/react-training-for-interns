@@ -1,11 +1,12 @@
 import React from 'react'
 
 const TodoRow = ({ todo }) => {
+  const textStyle={textDecoration: todo.isDone?"line-through":"none"}
   return (
     <div>
-        <span>{todo.value}</span>
+        <span style={textStyle}>{todo.value}</span>
         {
-          (todo.isDone)? <button>delete</button> : <button disabled={todo.isDone}>done</button>
+          (todo.isDone)? <button style={{background:"orangered",color:"white"}}>delete</button> : <button style={{background:"green",color:"white"}}>done</button>
         }
     </div>
   )
