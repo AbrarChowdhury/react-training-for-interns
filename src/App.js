@@ -1,53 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import TodoRow from './components/TodoRow';
 
 function App() {
-  const [todoes, setTodoes] = useState(
-    [
-      {
-        value:"attend make up class at 8AM",
-        isDone: false
-      },
-      {
-        value:"attend make up class at 6PM",
-        isDone: false
-      },
-      {
-        value:"Prepare for electronics 1 quiz",
-        isDone: false
-      },
-      {
-        value:"Complete S.T's second project",
-        isDone: true
-      },
-    ]
-  )
+  const[ page, setPage] = useState("page1")
+  const[ life, setLife] = useState("good")
 
-  let todoInputValue=""
+  useEffect(()=>{
+    console.log("some state change occured")
+  })
 
-  const handleChange = (event)=>{
-    todoInputValue = event.target.value
-    console.log(todoInputValue)
-  }
+  useEffect(()=>{
+    console.log("this component just mounted")
+  },[])
 
-  const addTodo = ()=>{
-    setTodoes( prevTodoes => [ ...prevTodoes, { value:todoInputValue, isDone:false } ])
-    console.log(todoes)
-  }
+  useEffect(()=>{
+    console.log("the page state changed")
+  },[page])
+
+
 
   return (
     <div className="App">
-      <h1>BIOFORGE</h1>
-      <h2>Todo App</h2>
+      <button onClick={()=>setPage("page1")}>page1</button>
+      <button onClick={()=>setPage("page2")}>page2</button>
+      <button onClick={()=>setPage("page3")}>page3</button>
 
-      { todoes.map( (todo,i)=>
-        <TodoRow todo={todo} index={i} setTodoes={setTodoes}/>
-      )}
-
-      <input name="todo-input" type="text" placeholder='todo' onChange={(event)=>handleChange(event)}/>
-      <button onClick={addTodo}>Add todo</button>
-
+      <h1>{page}</h1>
+      <h1>life is {life}</h1>
+      <button onClick={()=>setLife("good")}>make life better</button>
+      <button onClick={()=>setLife("bad")}>dont do anything about it</button>
     </div>
   )
 }
