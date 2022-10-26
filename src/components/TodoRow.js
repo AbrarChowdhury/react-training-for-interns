@@ -1,4 +1,5 @@
 import React from "react";
+import './ToDoRow.css';
 
 const TodoRow = ({ todo, index, setTodoes }) => {
 	const textStyle = { textDecoration: todo.isDone ? "line-through" : "none" };
@@ -11,7 +12,7 @@ const TodoRow = ({ todo, index, setTodoes }) => {
 	}
 
 	return (
-		<div>
+		<div className="todo-div">
 			<span style={textStyle}>{todo.value}</span>
 			{todo.isDone ? (
 				<button style={{ background: "orangered", color: "white" }} onClick={handleDelete}>

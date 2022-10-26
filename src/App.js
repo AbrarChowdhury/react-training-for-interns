@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>BIOFORGE</h1>
+      <h1 className='title'>BIOFORGE</h1>
       <h2>Todo App</h2>
 
       { todoes.map( (todo,i)=>
